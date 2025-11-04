@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { profile } from './data'
 
 const SectionShell = ({ id, label, title, children }) => (
@@ -244,6 +245,25 @@ function App() {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-14 px-4 pt-16 md:gap-16 md:px-10">
         <Hero />
         <BrutalistTicker />
+        
+        <Link
+          to="/portfolio"
+          className="group relative overflow-hidden rounded-[24px] border-4 border-ink bg-gradient-to-br from-brutalYellow via-brutalCyan to-brutalMagenta p-1 shadow-brutal transition hover:-translate-y-1 hover:shadow-[12px_12px_0_0_#0e0e10]"
+        >
+          <div className="flex items-center justify-between rounded-[18px] bg-white px-8 py-6">
+            <div className="flex items-center gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-md border-2 border-ink bg-brutalCyan shadow-brutalSm">
+                <span className="text-2xl">🎨</span>
+              </div>
+              <div>
+                <p className="font-mono text-xs uppercase tracking-[0.3em] text-ink/60">Explore</p>
+                <h3 className="text-2xl font-semibold">View Portfolio</h3>
+              </div>
+            </div>
+            <span className="text-3xl transition group-hover:translate-x-2">→</span>
+          </div>
+        </Link>
+
         <SkillsSection />
         <AwardsSection />
         <EducationSection />
