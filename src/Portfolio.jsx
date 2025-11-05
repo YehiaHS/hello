@@ -2,6 +2,8 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Keyboard, Mousewheel } from 'swiper/modules'
+import { useLanguage } from './LanguageContext'
+import LanguageSelector from './LanguageSelector'
 import { portfolioWorks } from './portfolioData'
 
 import 'swiper/css'
@@ -60,8 +62,11 @@ WorkItem.propTypes = {
 }
 
 function Portfolio() {
+  const { t } = useLanguage()
+  
   return (
     <div className="min-h-screen bg-alabaster pb-24">
+      <LanguageSelector />
       <div className="mx-auto w-full max-w-7xl px-4 pt-16 md:px-10">
         <header className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
@@ -69,13 +74,10 @@ function Portfolio() {
               to="/"
               className="mb-4 inline-flex items-center gap-2 font-mono text-sm uppercase tracking-[0.2em] text-ink/70 transition hover:text-ink"
             >
-              <span className="text-xl">←</span> Back to Profile
+              <span className="text-xl">←</span> {t('backToHome')}
             </Link>
-            <div className="mt-6 flex items-center gap-3">
-              <div className="h-4 w-4 rounded-sm bg-brutalCyan shadow-brutalSm" />
-              <p className="font-mono text-sm uppercase tracking-[0.3em] text-ink/60">Portfolio</p>
-            </div>
-            <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Selected Works</h1>
+            <h1 className="text-4xl font-semibold md:text-5xl">{t('portfolioTitle')}</h1>
+            <p className="mt-2 text-lg text-ink/70">{t('portfolioSubtitle')}</p>
             <p className="mt-3 max-w-2xl text-lg text-ink/70">
               A showcase of creative projects spanning video editing, animation, graphic design, and digital storytelling.
             </p>
