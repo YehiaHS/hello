@@ -1,40 +1,54 @@
 export const portfolioWorks = [
   {
     id: 1,
-    title: 'Project Title 1',
-    description: 'Brief description of your creative work, highlighting the medium, techniques, and story behind it.',
-    category: 'Video Editing', // or 'Graphic Design', 'Animation', 'Photography', etc.
-    thumbnail: '/portfolio/project1-thumb.jpg',
+    title: 'BUE Film Festival Poster Banner',
+    description: 'Official poster design for the British University in Egypt International Student Film Festival, featuring bold typography and cinematic imagery.',
+    category: 'Poster Design',
+    thumbnail: '/hello/portfolio/bue poster banner.png',
     media: {
-      type: 'image', // 'image' or 'video'
-      src: '/portfolio/project1.jpg',
+      type: 'image',
+      src: '/hello/portfolio/bue poster banner.png',
     },
     year: '2024',
   },
   {
     id: 2,
-    title: 'Project Title 2',
-    description: 'Another creative project showcasing your skills in digital media and storytelling.',
-    category: 'Animation',
-    thumbnail: '/portfolio/project2-thumb.jpg',
-    media: {
-      type: 'video',
-      src: '/portfolio/project2.mp4',
-      poster: '/portfolio/project2-thumb.jpg',
-    },
-    year: '2023',
-  },
-  {
-    id: 3,
-    title: 'Project Title 3',
-    description: 'Example project demonstrating your expertise in visual communication.',
-    category: 'Graphic Design',
-    thumbnail: '/portfolio/project3-thumb.jpg',
+    title: 'BUE ISFF Logo',
+    description: 'Brand identity design for the International Student Film Festival, combining film reel motifs with modern minimalism.',
+    category: 'Logo Design',
+    thumbnail: '/hello/portfolio/BUEISFF LOGO PNG.png',
     media: {
       type: 'image',
-      src: '/portfolio/project3.jpg',
+      src: '/hello/portfolio/BUEISFF LOGO PNG.png',
     },
     year: '2024',
   },
-  // Add more projects here after uploading your media files to /public/portfolio/
+  {
+    id: 3,
+    title: 'Film Festival Billboard',
+    description: 'Large-scale billboard design for campus-wide festival promotion with high-impact visual hierarchy.',
+    category: 'Billboard Design',
+    thumbnail: '/hello/portfolio/POSTER COMPRESSED.jpg',
+    media: {
+      type: 'image',
+      src: '/hello/portfolio/POSTER COMPRESSED.jpg',
+    },
+    year: '2024',
+  },
+  {
+    id: 4,
+    title: 'Book Cover Design',
+    description: 'Editorial design project featuring typography exploration and narrative-driven composition.',
+    category: 'Book Design',
+    thumbnail: '/hello/portfolio/Book Cover final submission.png',
+    media: {
+      type: 'image',
+      src: '/hello/portfolio/Book Cover final submission.png',
+    },
+    year: '2024',
+  },
 ]
+
+// Note: Portfolio showcases design work for the BUE International Student Film Festival
+// Large source files (PSDs, videos) are excluded to stay within GitHub's file size limits
+// To add videos, upload to YouTube and use embedded links or host on a CDN

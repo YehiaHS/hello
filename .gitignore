@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Source portfolio files (large PSDs, videos, ZIPs)
+# Only optimized web assets in public/portfolio/ are committed
+/Portfolio/
