@@ -1,13 +1,21 @@
+// Helper function to get the correct base path
+const getAssetPath = (path) => {
+  // In production (GitHub Pages), BASE_URL will be '/hello/'
+  // In development, it will be '/'
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}${path}`.replace(/\/+/g, '/');
+};
+
 export const portfolioWorks = [
   {
     id: 1,
     title: 'BUE Film Festival Poster Banner',
     description: 'Official poster design for the British University in Egypt International Student Film Festival, featuring bold typography and cinematic imagery.',
     category: 'Poster Design',
-    thumbnail: '/hello/portfolio/bue poster banner.png',
+    thumbnail: getAssetPath('portfolio/bue poster banner.png'),
     media: {
       type: 'image',
-      src: '/hello/portfolio/bue poster banner.png',
+      src: getAssetPath('portfolio/bue poster banner.png'),
     },
     year: '2024',
   },
@@ -16,10 +24,10 @@ export const portfolioWorks = [
     title: 'BUE ISFF Logo',
     description: 'Brand identity design for the International Student Film Festival, combining film reel motifs with modern minimalism.',
     category: 'Logo Design',
-    thumbnail: '/hello/portfolio/BUEISFF LOGO PNG.png',
+    thumbnail: getAssetPath('portfolio/BUEISFF LOGO PNG.png'),
     media: {
       type: 'image',
-      src: '/hello/portfolio/BUEISFF LOGO PNG.png',
+      src: getAssetPath('portfolio/BUEISFF LOGO PNG.png'),
     },
     year: '2024',
   },
@@ -28,10 +36,10 @@ export const portfolioWorks = [
     title: 'Film Festival Billboard',
     description: 'Large-scale billboard design for campus-wide festival promotion with high-impact visual hierarchy.',
     category: 'Billboard Design',
-    thumbnail: '/hello/portfolio/POSTER COMPRESSED.jpg',
+    thumbnail: getAssetPath('portfolio/POSTER COMPRESSED.jpg'),
     media: {
       type: 'image',
-      src: '/hello/portfolio/POSTER COMPRESSED.jpg',
+      src: getAssetPath('portfolio/POSTER COMPRESSED.jpg'),
     },
     year: '2024',
   },
@@ -40,10 +48,10 @@ export const portfolioWorks = [
     title: 'Book Cover Design',
     description: 'Editorial design project featuring typography exploration and narrative-driven composition.',
     category: 'Book Design',
-    thumbnail: '/hello/portfolio/Book Cover final submission.png',
+    thumbnail: getAssetPath('portfolio/Book Cover final submission.png'),
     media: {
       type: 'image',
-      src: '/hello/portfolio/Book Cover final submission.png',
+      src: getAssetPath('portfolio/Book Cover final submission.png'),
     },
     year: '2024',
   },
