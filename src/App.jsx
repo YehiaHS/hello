@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { useLanguage } from './LanguageContext'
 import LanguageSelector from './LanguageSelector'
 import Cursor from './Cursor'
-import { profile } from './data'
 
 const SectionShell = ({ id, label, title, children }) => (
   <motion.section
@@ -44,6 +43,7 @@ SectionShell.propTypes = {
 
 const Hero = () => {
   const { t } = useLanguage()
+  const profile = t('profile')
   
   return (
     <motion.header 
@@ -135,12 +135,12 @@ const Hero = () => {
           <div className="flex items-center justify-between border-b-4 border-dashed border-alabaster pb-6">
             <span className="font-mono text-sm uppercase tracking-widest text-brutalYellow">{t('contactMe')}</span>
             <span className="bg-brutalLime px-3 py-1 font-mono text-xs uppercase tracking-widest text-ink font-bold animate-pulse">
-              Available
+              {t('available')}
             </span>
           </div>
           <div className="space-y-6 font-mono text-sm">
             <div className="flex flex-col gap-2">
-              <span className="text-brutalCyan">WhatsApp</span>
+              <span className="text-brutalCyan">{t('whatsapp')}</span>
               <a href={`https://wa.me/${profile.contact.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noreferrer" className="bg-brutalYellow text-ink p-2 text-center font-bold hover:bg-white transition-colors">
                 {profile.contact.whatsapp}
               </a>
@@ -171,12 +171,16 @@ const Hero = () => {
 }
 
 const BrutalistTicker = () => {
+  const { t } = useLanguage()
+  const profile = t('profile')
+  const ticker = t('ticker')
+
   const tickerItems = [
-    'Digital Storyteller',
-    'Creative Technologist',
+    ticker.item1,
+    ticker.item2,
     ...profile.highlights,
-    'Fluent in Arabic / English / French',
-    'Open to Boundary-Pushing Collaborations',
+    ticker.item3,
+    ticker.item4,
   ]
 
   const loopItems = [...tickerItems, ...tickerItems]
@@ -211,8 +215,9 @@ const BrutalistTicker = () => {
 
 const SkillsSection = () => {
   const { t } = useLanguage()
+  const profile = t('profile')
   return (
-    <SectionShell id="skills" label="Capabilities" title={t('skillsTitle')}>
+    <SectionShell id="skills" label={t('capabilities')} title={t('skillsTitle')}>
       <div className="grid gap-8 md:grid-cols-2">
         {profile.skills.map(({ title, items, accent }, i) => (
           <motion.div 
@@ -244,8 +249,9 @@ const SkillsSection = () => {
 
 const AwardsSection = () => {
   const { t } = useLanguage()
+  const profile = t('profile')
   return (
-    <SectionShell id="awards" label="Recognition" title={t('awardsTitle')}>
+    <SectionShell id="awards" label={t('recognition')} title={t('awardsTitle')}>
       <div className="grid gap-6 md:grid-cols-2">
         {profile.awards.map((award, i) => (
           <motion.div
@@ -270,8 +276,9 @@ const AwardsSection = () => {
 
 const EducationSection = () => {
   const { t } = useLanguage()
+  const profile = t('profile')
   return (
-    <SectionShell id="education" label="Education" title={t('educationTitle')}>
+    <SectionShell id="education" label={t('educationLabel')} title={t('educationTitle')}>
       <div className="space-y-8">
         {profile.education.map((item, i) => (
           <motion.div 
@@ -307,14 +314,14 @@ const EducationSection = () => {
 
 const ContactSection = () => {
   const { t } = useLanguage()
+  const profile = t('profile')
   return (
-    <SectionShell id="contact" label="Stay In Touch" title={t('contactTitle')}>
+    <SectionShell id="contact" label={t('stayInTouch')} title={t('contactTitle')}>
       <div className="grid gap-8 md:grid-cols-[1.2fr_1fr]">
         <div className="border-4 border-ink bg-alabaster p-8 shadow-brutal">
-          <h3 className="mb-6 font-mono text-sm uppercase tracking-widest text-ink font-bold">Why reach out?</h3>
+          <h3 className="mb-6 font-mono text-sm uppercase tracking-widest text-ink font-bold">{t('whyReachOut')}</h3>
           <p className="text-xl font-medium leading-relaxed">
-            Yehia is excited to contribute to bold, interdisciplinary projects where storytelling meets technology. Open to internships,
-            creative collaborations, and junior roles spanning media production, marketing, and software experiences.
+            {t('reachOutText')}
           </p>
         </div>
         <div className="flex flex-col gap-6">
@@ -333,7 +340,7 @@ const ContactSection = () => {
             rel="noreferrer"
             className="flex items-center justify-between border-4 border-ink bg-brutalMagenta px-8 py-6 font-mono text-sm uppercase text-white shadow-brutal transition-all hover:-translate-y-2 hover:shadow-brutalLg hover:bg-ink"
           >
-            <span className="font-bold">WhatsApp</span>
+            <span className="font-bold">{t('whatsapp')}</span>
             <span className="text-right text-xs normal-case">{profile.contact.whatsapp}</span>
           </motion.a>
           <motion.a
@@ -374,7 +381,7 @@ function App() {
                 <span className="text-4xl">👁️</span>
               </div>
               <div>
-                <p className="font-mono text-sm uppercase tracking-widest text-ink font-bold">Explore</p>
+                <p className="font-mono text-sm uppercase tracking-widest text-ink font-bold">{t('explore')}</p>
                 <h3 className="text-4xl font-black uppercase">{t('viewPortfolio')}</h3>
               </div>
             </div>
@@ -395,7 +402,7 @@ function App() {
       </div>
       <footer className="mx-auto mt-24 w-full max-w-7xl px-4 md:px-10">
         <div className="border-4 border-ink bg-ink px-8 py-6 font-mono text-sm uppercase tracking-widest text-alabaster shadow-brutalSm text-center">
-          Designed for Yehia Hatem Salah Salem · {new Date().getFullYear()}
+          {t('footerText')}
         </div>
       </footer>
     </div>

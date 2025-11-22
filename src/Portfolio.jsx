@@ -6,7 +6,6 @@ import { Navigation, Pagination, Keyboard, Mousewheel } from 'swiper/modules'
 import { useLanguage } from './LanguageContext'
 import LanguageSelector from './LanguageSelector'
 import Cursor from './Cursor'
-import { portfolioWorks } from './portfolioData'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -72,6 +71,7 @@ WorkItem.propTypes = {
 
 function Portfolio() {
   const { t } = useLanguage()
+  const portfolioWorks = t('portfolioWorks')
   
   return (
     <div className="min-h-screen bg-alabaster pb-24 cursor-none">
@@ -100,7 +100,7 @@ function Portfolio() {
             <h1 className="text-4xl font-semibold md:text-5xl">{t('portfolioTitle')}</h1>
             <p className="mt-2 text-lg text-ink/70">{t('portfolioSubtitle')}</p>
             <p className="mt-3 max-w-2xl text-lg text-ink/70">
-              A showcase of creative projects spanning video editing, animation, graphic design, and digital storytelling.
+              {t('portfolioDescription')}
             </p>
           </div>
         </motion.header>
@@ -133,31 +133,6 @@ function Portfolio() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 border-4 border-ink bg-white p-8 shadow-brutal"
-        >
-          <h2 className="mb-4 font-mono text-sm uppercase tracking-[0.3em] text-ink/70">
-            How to Add Your Work
-          </h2>
-          <div className="space-y-3 text-sm text-ink/80">
-            <p>
-              <strong>1.</strong> Place your media files (images/videos) in the <code className="border border-ink bg-alabaster px-2 py-0.5 font-mono text-xs">/public/portfolio/</code> directory.
-            </p>
-            <p>
-              <strong>2.</strong> Edit <code className="border border-ink bg-alabaster px-2 py-0.5 font-mono text-xs">src/portfolioData.js</code> to add your project details (title, description, category, media paths).
-            </p>
-            <p>
-              <strong>3.</strong> Supported formats: JPG, PNG, GIF for images; MP4, WebM for videos.
-            </p>
-            <p>
-              <strong>4.</strong> The carousel will automatically update with your new entries.
-            </p>
-          </div>
         </motion.div>
       </div>
     </div>
