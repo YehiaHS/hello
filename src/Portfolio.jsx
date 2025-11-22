@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Keyboard, Mousewheel } from 'swiper/modules'
 import { useLanguage } from './LanguageContext'
 import LanguageSelector from './LanguageSelector'
+import Cursor from './Cursor'
 import { portfolioWorks } from './portfolioData'
 
 import 'swiper/css'
@@ -11,38 +13,45 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 const WorkItem = ({ work }) => (
-  <div className="group relative flex h-full flex-col border-4 border-ink bg-white shadow-brutal transition-all hover:-translate-y-2 hover:shadow-brutalLg">
-    <div className="relative aspect-video overflow-hidden border-b-4 border-ink bg-ink">
+  <motion.div 
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    whileHover={{ y: -10, rotate: 0.5 }}
+    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    className="relative flex h-full flex-col overflow-hidden rounded-[24px] border-4 border-ink bg-white shadow-brutal"
+  >
+    <div className="relative aspect-video overflow-hidden border-b-4 border-ink bg-alabaster group">
       {work.media.type === 'video' ? (
         <video
           src={work.media.src}
           poster={work.media.poster}
           controls
-          className="h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           preload="metadata"
         />
       ) : (
         <img
           src={work.media.src}
           alt={work.title}
-          className="h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100 grayscale group-hover:grayscale-0"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       )}
-      <div className="pointer-events-none absolute inset-0 border-4 border-dashed border-white/20" aria-hidden />
-      <div className="absolute top-4 right-4 bg-brutalYellow border-2 border-ink px-3 py-1 font-mono text-xs uppercase tracking-widest shadow-brutalSm z-10">
-        {work.category}
-      </div>
+      <div className="pointer-events-none absolute inset-0 border-4 border-dashed border-ink/20" aria-hidden />
     </div>
-    <div className="flex flex-1 flex-col gap-6 p-8 bg-white group-hover:bg-brutalCyan transition-colors">
-      <div className="flex items-center justify-between border-b-4 border-ink pb-4">
-        <h3 className="text-3xl font-black uppercase leading-none">{work.title}</h3>
-        <span className="font-mono text-sm font-bold">{work.year}</span>
+    <div className="flex flex-1 flex-col gap-4 p-8">
+      <div className="flex items-center justify-between gap-4">
+        <span className="inline-flex rounded-md border-2 border-ink bg-brutalYellow px-3 py-1 font-mono text-xs uppercase tracking-[0.2em] shadow-brutalSm">
+          {work.category}
+        </span>
+        <span className="font-mono text-sm text-ink/60">{work.year}</span>
       </div>
       <div>
-        <p className="text-lg font-medium leading-relaxed text-ink">{work.description}</p>
+        <h3 className="text-2xl font-semibold">{work.title}</h3>
+        <p className="mt-3 text-base leading-relaxed text-ink/70">{work.description}</p>
       </div>
     </div>
-  </div>
+  </motion.div>
 )
 
 WorkItem.propTypes = {
@@ -63,32 +72,45 @@ WorkItem.propTypes = {
 
 function Portfolio() {
   const { t } = useLanguage()
-
+  
   return (
-    <div className="min-h-screen bg-alabaster pb-24">
+    <div className="min-h-screen bg-alabaster pb-24 cursor-none">
+      <Cursor />
       <LanguageSelector />
       <div className="mx-auto w-full max-w-7xl px-4 pt-16 md:px-10">
-        <header className="mb-16 flex flex-col gap-8 md:flex-row md:items-end md:justify-between border-b-8 border-ink pb-8">
+        <motion.header 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+        >
           <div>
             <Link
               to="/"
-              className="mb-6 inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-ink font-bold hover:bg-brutalMagenta hover:text-white px-2 py-1 transition-colors"
+              className="mb-4 inline-flex items-center gap-2 font-mono text-sm uppercase tracking-[0.2em] text-ink/70 transition hover:text-ink"
             >
-              <span className="text-xl">←</span> {t('backToHome')}
+              <motion.span 
+                whileHover={{ x: -5 }}
+                className="text-xl"
+              >
+                ←
+              </motion.span> 
+              {t('backToHome')}
             </Link>
-            <h1 className="text-6xl font-black uppercase md:text-8xl tracking-tighter">{t('portfolioTitle')}</h1>
-          </div>
-          <div className="max-w-xl">
-            <p className="text-xl font-bold text-ink border-l-4 border-brutalYellow pl-4">
-              {t('portfolioSubtitle')}
-            </p>
-            <p className="mt-4 text-lg text-ink/80 font-mono">
+            <h1 className="text-4xl font-semibold md:text-5xl">{t('portfolioTitle')}</h1>
+            <p className="mt-2 text-lg text-ink/70">{t('portfolioSubtitle')}</p>
+            <p className="mt-3 max-w-2xl text-lg text-ink/70">
               A showcase of creative projects spanning video editing, animation, graphic design, and digital storytelling.
             </p>
           </div>
-        </header>
+        </motion.header>
 
-        <div className="relative">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="relative"
+        >
           <Swiper
             modules={[Navigation, Pagination, Keyboard, Mousewheel]}
             spaceBetween={40}
@@ -111,31 +133,32 @@ function Portfolio() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
 
-        <div className="mt-24 border-4 border-ink bg-ink p-10 shadow-brutalReverse text-alabaster">
-          <h2 className="mb-6 font-mono text-lg uppercase tracking-widest text-brutalYellow font-bold">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 rounded-[20px] border-4 border-ink bg-white p-8 shadow-brutal"
+        >
+          <h2 className="mb-4 font-mono text-sm uppercase tracking-[0.3em] text-ink/70">
             How to Add Your Work
           </h2>
-          <div className="space-y-4 text-base font-mono">
-            <p className="flex items-center gap-4">
-              <span className="bg-brutalMagenta text-white px-2 font-bold">1</span>
-              <span>Place your media files (images/videos) in the <code className="bg-white/10 px-2 py-1">/public/portfolio/</code> directory.</span>
+          <div className="space-y-3 text-sm text-ink/80">
+            <p>
+              <strong>1.</strong> Place your media files (images/videos) in the <code className="rounded border border-ink bg-alabaster px-2 py-0.5 font-mono text-xs">/public/portfolio/</code> directory.
             </p>
-            <p className="flex items-center gap-4">
-              <span className="bg-brutalCyan text-ink px-2 font-bold">2</span>
-              <span>Edit <code className="bg-white/10 px-2 py-1">src/portfolioData.js</code> to add your project details.</span>
+            <p>
+              <strong>2.</strong> Edit <code className="rounded border border-ink bg-alabaster px-2 py-0.5 font-mono text-xs">src/portfolioData.js</code> to add your project details (title, description, category, media paths).
             </p>
-            <p className="flex items-center gap-4">
-              <span className="bg-brutalLime text-ink px-2 font-bold">3</span>
-              <span>Supported formats: JPG, PNG, GIF for images; MP4, WebM for videos.</span>
+            <p>
+              <strong>3.</strong> Supported formats: JPG, PNG, GIF for images; MP4, WebM for videos.
             </p>
-            <p className="flex items-center gap-4">
-              <span className="bg-brutalYellow text-ink px-2 font-bold">4</span>
-              <span>The carousel will automatically update with your new entries.</span>
+            <p>
+              <strong>4.</strong> The carousel will automatically update with your new entries.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   )
