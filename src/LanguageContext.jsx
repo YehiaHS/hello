@@ -18,7 +18,8 @@ export const LanguageProvider = ({ children }) => {
     const saved = localStorage.getItem('language');
     if (saved && translations[saved]) return saved;
     
-    const browserLang = navigator.language.split('-')[0];
+    const navLang = navigator.language || 'en';
+    const browserLang = navLang.split('-')[0];
     return translations[browserLang] ? browserLang : 'en';
   });
 

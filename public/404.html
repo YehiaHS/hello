@@ -10,7 +10,7 @@
       (function() {
         const pathSegmentsToKeep = 1; // For /hello/ base path
         
-        const path = window.location.pathname.split('/').slice(pathSegmentsToKeep);
+        const path = window.location.pathname.split('/').slice(pathSegmentsToKeep + 1);
         const redirect = window.location.origin + 
           window.location.pathname.split('/').slice(0, pathSegmentsToKeep + 1).join('/') + 
           '/?p=/' + path.join('/') + window.location.search + window.location.hash;
