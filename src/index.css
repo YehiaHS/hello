@@ -15,20 +15,27 @@
 
   body {
     @apply bg-alabaster text-ink font-body leading-relaxed;
-    background-image: radial-gradient(circle at 1px 1px, rgba(14, 14, 16, 0.08) 1px, transparent 0);
-    background-size: 24px 24px;
+    background-image: 
+      linear-gradient(to right, #000000 1px, transparent 1px),
+      linear-gradient(to bottom, #000000 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-color: #f0f0f0;
+    /* Make the grid lines very subtle but visible */
+    background-blend-mode: overlay;
+    background-image: radial-gradient(#000 1px, transparent 0);
+    background-size: 20px 20px;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight text-ink;
+    @apply font-display tracking-tighter text-ink uppercase font-bold;
   }
 
   a {
-    @apply text-ink underline decoration-2 decoration-brutalMagenta underline-offset-4 transition;
+    @apply text-ink underline decoration-4 decoration-brutalMagenta underline-offset-4 transition-all duration-200;
   }
 
   a:hover {
-    @apply text-brutalMagenta;
+    @apply bg-brutalMagenta text-white decoration-transparent;
   }
 }
 

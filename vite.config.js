@@ -9,6 +9,6 @@ const basePath = process.env.BASE_PATH ?? inferredBase
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: basePath,
+  base: '/hello/',
   plugins: [react()],
 })
