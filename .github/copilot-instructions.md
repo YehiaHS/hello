@@ -1,0 +1,13 @@
+- [x] Verify that the copilot-instructions.md file in the .github directory is created — Created .github/copilot-instructions.md for this workspace.
+- [x] Clarify Project Requirements — Confirmed request for a neobrutalist Vite + React portfolio with live preview.
+- [x] Scaffold the Project — Generated the Vite React app via create-vite@5.2.0.
+- [x] Customize the Project — Implemented Tailwind-based brutalist layout with hero, skills, awards, education, and contact sections driven by profile data.
+- [x] Install Required Extensions — No extensions were required by the project setup guidance.
+- [x] Compile the Project — Ran npm run build to ensure the project builds successfully.
+- [x] Create and Run Task — Added a VS Code task that runs npm run dev for local previews.
+- [x] Launch the Project — Started the Vite dev server with npm run dev -- --host to verify live output.
+- [x] Ensure Documentation is Complete — README updated with project details and instructions file cleaned of comments.
+
+- Work through each checklist item systematically.
+- Keep communication concise and focused.
+- Follow development best practices.
