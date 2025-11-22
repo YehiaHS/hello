@@ -14,11 +14,15 @@ export const useLanguage = () => {
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(() => {
-    // Check localStorage first, then browser language, default to English
-    const saved = localStorage.getItem('language');
-    if (saved && translations[saved]) return saved;
+    try {
+      // Check localStorage first, then browser language, default to English
+      const saved = localStorage.getItem('language');
+      if (saved && translations[saved]) return saved;
+    } catch (e) {
+      console.warn('LocalStorage access denied', e);
+    }
     
-    const navLang = navigator.language || 'en';
+    const navLang = (typeof navigator !== 'undefined' && navigator.language) || 'en';
     const browserLang = navLang.split('-')[0];
     return translations[browserLang] ? browserLang : 'en';
   });
@@ -27,8 +31,12 @@ export const LanguageProvider = ({ children }) => {
   const isRTL = currentLang?.rtl || false;
 
   useEffect(() => {
-    // Save language preference
-    localStorage.setItem('language', language);
+    try {
+      // Save language preference
+      localStorage.setItem('language', language);
+    } catch (e) {
+      console.warn('LocalStorage access denied', e);
+    }
     
     // Set document direction
     document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
