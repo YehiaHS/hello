@@ -31,7 +31,7 @@ const LanguageSelector = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 rounded-xl border-4 border-ink bg-white px-4 py-2 font-display text-sm font-bold uppercase shadow-brutalSm transition-shadow hover:shadow-brutal"
+        className="flex items-center gap-2 border-4 border-ink bg-white px-4 py-2 font-display text-sm font-bold uppercase shadow-brutalSm transition-shadow hover:shadow-brutal"
         aria-label={t('language')}
       >
         <span className="text-2xl">{currentLang?.flag}</span>
@@ -54,7 +54,7 @@ const LanguageSelector = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 top-full mt-2 w-48 overflow-hidden rounded-xl border-4 border-ink bg-white shadow-brutal"
+            className="absolute right-0 top-full mt-2 w-48 overflow-hidden border-4 border-ink bg-white shadow-brutal"
           >
             {languages.map((lang) => (
               <button

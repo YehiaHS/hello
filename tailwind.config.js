@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#000000',
-        alabaster: '#f0f0f0',
-        brutalYellow: '#ffea00',
-        brutalCyan: '#00ffff',
-        brutalMagenta: '#ff00ff',
+        ink: '#0e0e10',
+        alabaster: '#f3f1ed',
+        brutalYellow: '#ffd400',
+        brutalCyan: '#19e0ff',
+        brutalMagenta: '#ff007f',
         brutalLime: '#ccff00',
       },
       fontFamily: {
@@ -20,10 +20,10 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
-        brutal: '10px 10px 0 0 #000000',
-        brutalSm: '5px 5px 0 0 #000000',
-        brutalLg: '15px 15px 0 0 #000000',
-        brutalReverse: '-8px 8px 0 0 #000000',
+        brutal: '8px 8px 0 0 #0e0e10',
+        brutalSm: '4px 4px 0 0 #0e0e10',
+        brutalLg: '12px 12px 0 0 #0e0e10',
+        brutalReverse: '-8px 8px 0 0 #0e0e10',
       },
       backgroundImage: {
         grid: 'linear-gradient(90deg, rgba(14,14,16,0.08) 1px, transparent 0), linear-gradient(180deg, rgba(14,14,16,0.08) 1px, transparent 0)',

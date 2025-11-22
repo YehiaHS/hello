@@ -84,7 +84,7 @@
 
   .brutalist-swiper .swiper-button-prev,
   .brutalist-swiper .swiper-button-next {
-    @apply h-14 w-14 rounded-md border-4 border-ink bg-brutalYellow shadow-brutal transition;
+    @apply h-14 w-14 border-4 border-ink bg-brutalYellow shadow-brutal transition;
     color: #0e0e10;
   }
 
@@ -99,7 +99,7 @@
   }
 
   .brutalist-swiper .swiper-pagination-bullet {
-    @apply h-3 w-3 rounded-sm border-2 border-ink bg-alabaster opacity-100;
+    @apply h-3 w-3 border-2 border-ink bg-alabaster opacity-100;
   }
 
   .brutalist-swiper .swiper-pagination-bullet-active {

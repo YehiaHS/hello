@@ -19,7 +19,7 @@ const WorkItem = ({ work }) => (
     viewport={{ once: true }}
     whileHover={{ y: -10, rotate: 0.5 }}
     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    className="relative flex h-full flex-col overflow-hidden rounded-[24px] border-4 border-ink bg-white shadow-brutal"
+    className="relative flex h-full flex-col overflow-hidden border-4 border-ink bg-white shadow-brutal"
   >
     <div className="relative aspect-video overflow-hidden border-b-4 border-ink bg-alabaster group">
       {work.media.type === 'video' ? (
@@ -41,7 +41,7 @@ const WorkItem = ({ work }) => (
     </div>
     <div className="flex flex-1 flex-col gap-4 p-8">
       <div className="flex items-center justify-between gap-4">
-        <span className="inline-flex rounded-md border-2 border-ink bg-brutalYellow px-3 py-1 font-mono text-xs uppercase tracking-[0.2em] shadow-brutalSm">
+        <span className="inline-flex border-2 border-ink bg-brutalYellow px-3 py-1 font-mono text-xs uppercase tracking-[0.2em] shadow-brutalSm">
           {work.category}
         </span>
         <span className="font-mono text-sm text-ink/60">{work.year}</span>
@@ -139,17 +139,17 @@ function Portfolio() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 rounded-[20px] border-4 border-ink bg-white p-8 shadow-brutal"
+          className="mt-16 border-4 border-ink bg-white p-8 shadow-brutal"
         >
           <h2 className="mb-4 font-mono text-sm uppercase tracking-[0.3em] text-ink/70">
             How to Add Your Work
           </h2>
           <div className="space-y-3 text-sm text-ink/80">
             <p>
-              <strong>1.</strong> Place your media files (images/videos) in the <code className="rounded border border-ink bg-alabaster px-2 py-0.5 font-mono text-xs">/public/portfolio/</code> directory.
+              <strong>1.</strong> Place your media files (images/videos) in the <code className="border border-ink bg-alabaster px-2 py-0.5 font-mono text-xs">/public/portfolio/</code> directory.
             </p>
             <p>
-              <strong>2.</strong> Edit <code className="rounded border border-ink bg-alabaster px-2 py-0.5 font-mono text-xs">src/portfolioData.js</code> to add your project details (title, description, category, media paths).
+              <strong>2.</strong> Edit <code className="border border-ink bg-alabaster px-2 py-0.5 font-mono text-xs">src/portfolioData.js</code> to add your project details (title, description, category, media paths).
             </p>
             <p>
               <strong>3.</strong> Supported formats: JPG, PNG, GIF for images; MP4, WebM for videos.
